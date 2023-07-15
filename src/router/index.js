@@ -7,17 +7,43 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
-      component: HomeView
+      component: HomeView,
+      meta: {
+        title: 'Products list',
+      }
     },
-    // {
-    //   path: '/about',
-    //   name: 'about',
-    //   // route level code-splitting
-    //   // this generates a separate chunk (About.[hash].js) for this route
-    //   // which is lazy-loaded when the route is visited.
-    //   component: () => import('../views/AboutView.vue')
-    // }
+    {
+      path: '/product/:id',
+      name: 'product',
+      component: () => import('../views/ProductView.vue'),
+      meta: {
+        title: 'Product'
+      },
+      props: true,
+    },
+    {
+      path: '/cart',
+      name: 'cart',
+      component: () => import('../views/CartView.vue'),
+      meta: {
+        title: 'Shopping cart'
+      },
+    },
+    {
+      path: '/:catchAll(.*)',
+      name: 'notFound',
+      component: () => import('../views/NotFoundView.vue'),
+      meta: {
+        title: 'Page Not Found'
+      },
+    }
   ]
-})
+});
+router.beforeEach((to, from, next) => {
+  const title = to.meta.title;
+  document.title = `${title ?? ''} | Easy Shopping App`;
+
+  next();
+});
 
 export default router

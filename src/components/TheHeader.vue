@@ -4,7 +4,14 @@
       title="Easy Shopping"
       class="bg-purple-lighten-3">
       <template #append>
-        <v-btn icon="mdi-cart"></v-btn>
+        <v-btn to="/">
+          <v-icon class="mr-2">mdi-view-list</v-icon>
+          Products
+        </v-btn>
+        <v-btn to="/cart">
+          <v-icon class="mr-2">mdi-cart</v-icon>
+          Cart
+        </v-btn>
       </template>
     </v-app-bar>
   </v-layout>
