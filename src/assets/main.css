@@ -6,3 +6,11 @@
 .flex-gap-2 {
   gap: 2rem;
 }
+.flex-gap-4 {
+  gap: 4rem;
+}
+.card-max-h {
+  max-height: 120px;
+  min-height: 120px;
+  overflow: hidden;
+}

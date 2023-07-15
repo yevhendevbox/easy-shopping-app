@@ -1,7 +1,7 @@
 <template>
   <main class="flex-grow-1">
-    <div class="container pt-16 d-flex flex-wrap flex-gap-2">
-      <base-product-card v-for="product in productList"
+    <div class="container py-16 d-flex flex-wrap justify-center flex-gap-2">
+      <base-product-card v-for="product in productsList"
         :key="product.id"
         :product="product" />
     </div>
@@ -9,29 +9,16 @@
 </template>
 
 <script setup>
+import { onMounted } from 'vue';
 import BaseProductCard from '../components/BaseProductCard.vue';
-const productList = [
-  {
-    "id": 1,
-    "name": "Product 1",
-    "price": 455,
-    "image": "https://picsum.photos/200/300?random=1",
-    "description": "This is a description for Product 1."
-  },
-  {
-    "id": 2,
-    "name": "Product 2",
-    "price": 270,
-    "image": "https://picsum.photos/200/300?random=2",
-    "description": "This is a description for Product 2."
-  },
-  {
-    "id": 3,
-    "name": "Product 3",
-    "price": 493,
-    "image": "https://picsum.photos/200/300?random=3",
-    "description": "This is a description for Product 3."
-  },
-]
+import { storeToRefs } from 'pinia';
+import { useProductsStore } from '../stores/productsStore';
+
+const store = useProductsStore();
+const { productsList } = storeToRefs(store);
+
+onMounted(() => {
+  store.getProductList();
+});
 </script>
 <style scoped></style>
