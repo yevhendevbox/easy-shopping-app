@@ -6,14 +6,14 @@
       cover></v-img>
 
     <v-card-title>
-      {{ props.product.name }}
+      {{ props.product.title }}
     </v-card-title>
 
     <v-card-subtitle>
       {{ props.product.price + ' $' }}
     </v-card-subtitle>
 
-    <v-card-text>
+    <v-card-text class="card-max-h">
       {{ props.product.description }}
     </v-card-text>
 
