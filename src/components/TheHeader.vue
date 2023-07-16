@@ -12,13 +12,14 @@
           <v-icon class="mr-2">mdi-cart</v-icon>
           Cart
         </v-btn>
+        <base-cart-badge />
       </template>
     </v-app-bar>
   </v-layout>
 </template>
 
 <script setup>
-
+import BaseCartBadge from './BaseCartBadge.vue';
 </script>
 
 <style scoped></style>

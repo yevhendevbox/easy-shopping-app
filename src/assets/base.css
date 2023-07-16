@@ -1,3 +1,6 @@
+ul {
+  list-style: none;
+}
 .container {
   width: 98%;
   margin: 0 auto;
