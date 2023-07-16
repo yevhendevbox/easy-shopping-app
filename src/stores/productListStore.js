@@ -62,7 +62,7 @@ export const useProductListStore = defineStore('productList', {
     },
     setOrderListFromLocalStorage() {
       const orderListFromLocalStorage = JSON.parse(localStorage.getItem('current-order'));
-      if (!orderListFromLocalStorage.length) return;
+      if (!orderListFromLocalStorage) return;
 
       this.currentOrderList = [...orderListFromLocalStorage];
     },
