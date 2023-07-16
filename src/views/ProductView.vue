@@ -25,7 +25,7 @@
           </v-btn>
           <v-btn border
             class="text-none"
-            color="purple-lighten-1"
+            color="amber-lighten-1"
             prepend-icon="mdi-cart-plus"
             variant="flat"
             @click="store.addProductToAnOrder(singleProduct)">
@@ -47,7 +47,7 @@ const { id } = useRoute().params;
 const router = useRouter();
 
 const store = useProductListStore();
-
+store.setOrderListFromLocalStorage();
 const singleProduct = ref({
   id: null,
   title: "",

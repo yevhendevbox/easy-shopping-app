@@ -2,7 +2,7 @@
   <v-layout class="flex-grow-0 mb-8">
     <v-app-bar :elevation="1"
       title="Easy Shopping"
-      class="bg-purple-lighten-3">
+      class="bg-grey-darken-4">
       <template #append>
         <v-btn to="/">
           <v-icon class="mr-2">mdi-view-list</v-icon>

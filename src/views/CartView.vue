@@ -31,6 +31,8 @@ import { storeToRefs } from 'pinia';
 const store = useProductListStore();
 const { currentOrderList, getOrderTotalPrice } = storeToRefs(store);
 
+store.setOrderListFromLocalStorage();
+
 </script>
 
 <style scoped></style>
