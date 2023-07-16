@@ -18,17 +18,19 @@
     </v-card-text>
 
     <v-card-actions>
-      <v-btn color="purple-lighten-2"
+      <v-btn color="grey-darken-4"
         variant="text"
         @click="goToProduct(props.product.id)">
         Details
       </v-btn>
       <v-spacer></v-spacer>
-      <v-btn icon="mdi-cart-plus"
-        color="green"
+      <v-btn class="text-none"
+        color="amber-lighten-1"
+        prepend-icon="mdi-cart-plus"
         variant="flat"
-        size="small"
-        @click="store.addProductToAnOrder(props.product)"></v-btn>
+        @click="store.addProductToAnOrder(props.product)">
+        add
+      </v-btn>
     </v-card-actions>
   </v-card>
 </template>
@@ -51,6 +53,7 @@ const router = useRouter();
 const goToProduct = (id) => {
   router.push({ name: 'product', params: { id } });
 }
+
 </script>
 
 <style scoped></style>

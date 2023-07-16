@@ -16,6 +16,7 @@ import { useProductListStore } from '../stores/productListStore';
 
 const store = useProductListStore();
 const { productsList } = storeToRefs(store);
+store.setOrderListFromLocalStorage();
 
 onMounted(() => {
   store.setProductList();
