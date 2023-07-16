@@ -27,7 +27,8 @@
             class="text-none"
             color="purple-lighten-1"
             prepend-icon="mdi-cart-plus"
-            variant="flat">
+            variant="flat"
+            @click="store.addProductToAnOrder(singleProduct)">
             Add to cart
           </v-btn>
         </div>
@@ -40,9 +41,12 @@
 import { onMounted, ref } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import { getProductByIdQuery } from '../core/api';
+import { useProductListStore } from '../stores/productListStore';
 
 const { id } = useRoute().params;
 const router = useRouter();
+
+const store = useProductListStore();
 
 const singleProduct = ref({
   id: null,
@@ -58,7 +62,6 @@ onMounted(async () => {
   try {
     singleProduct.value = await getProductByIdQuery(id);
     if (!singleProduct.value) {
-      console.log('I am from conditional', singleProduct.value);
       router.push({ name: 'notFound' });
     }
   } catch (error) {

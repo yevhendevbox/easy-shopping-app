@@ -12,13 +12,13 @@
 import { onMounted } from 'vue';
 import BaseProductCard from '../components/BaseProductCard.vue';
 import { storeToRefs } from 'pinia';
-import { useProductsStore } from '../stores/productsStore';
+import { useProductListStore } from '../stores/productListStore';
 
-const store = useProductsStore();
+const store = useProductListStore();
 const { productsList } = storeToRefs(store);
 
 onMounted(() => {
-  store.getProductList();
+  store.setProductList();
 });
 </script>
 <style scoped></style>

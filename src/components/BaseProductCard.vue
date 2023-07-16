@@ -27,7 +27,8 @@
       <v-btn icon="mdi-cart-plus"
         color="green"
         variant="flat"
-        size="small"></v-btn>
+        size="small"
+        @click="store.addProductToAnOrder(props.product)"></v-btn>
     </v-card-actions>
   </v-card>
 </template>
@@ -35,6 +36,9 @@
 <script setup>
 import { isProductValid } from '@/validators.js';
 import { useRouter } from 'vue-router';
+import { useProductListStore } from '../stores/productListStore';
+
+const store = useProductListStore();
 const props = defineProps({
   product: {
     type: Object,
